@@ -33,7 +33,7 @@
 		
         <li class="treeview {{ ($prefix == '/brand')? 'active':'' }} ">
           <a href="#">
-            <i data-feather="message-circle"></i>
+            <i data-feather="box"></i>
             <span>Brands</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
@@ -46,13 +46,14 @@
 		  
         <li class="treeview {{ ($prefix == '/category')? 'active':'' }} ">
           <a href="#">
-            <i data-feather="mail"></i> <span>Category</span>
+            <i data-feather="clipboard"></i> <span>Category</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{ route('all.category') }}"><i class="ti-more"></i>All Category</a></li>
+            <li class="{{ ($route == 'all.category')? 'active':'' }}"><a href="{{ route('all.brand') }}"><a href="{{ route('all.category') }}"><i class="ti-more"></i>All Category</a></li>
+            <li class="{{ ($route == 'all.subcategory')? 'active':'' }}"><a href="{{ route('all.brand') }}"><a href="{{ route('all.subcategory') }}"><i class="ti-more"></i>All SubCategory</a></li>
           </ul>
         </li>
 		
