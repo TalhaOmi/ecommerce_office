@@ -52,11 +52,9 @@ class CategoryController extends Controller
 
     }
 
-    public function CategoryUpdate(Request $request){
+    public function CategoryUpdate(Request $request ,$id){
         
-        $cat_id = $request->id;
-
-        Category::findOrFail($cat_id)->update([
+        Category::findOrFail($id)->update([
             'category_name_en' => $request->category_name_en,
             'category_name_bn' => $request->category_name_bn,
             'category_slug_en' => strtolower(str_replace(' ','-',$request->category_name_en)),
