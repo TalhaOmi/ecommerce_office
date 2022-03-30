@@ -988,15 +988,32 @@
                           <div class="image"> <a href="detail.html"><img  src="{{ asset($product->product_thambnail) }}" alt=""></a> </div>
                           <!-- /.image -->
                           
-                          <div class="tag new"><span>new</span></div>
-                        </div>
+                  @php
+                  $amount = $product->selling_price - $product->discount_price;
+                  $discount = ($amount/$product->selling_price) * 100;
+                  @endphp
+                          
+                          <div>
+                            @if ($product->discount_price == NULL)
+                            <div class="tag new"><span>new</span></div>
+                            @else
+                            <div class="tag hot"><span>{{ round($discount) }}%</span></div>
+                            @endif
+                          </div>
+                                         </div>
                         <!-- /.product-image -->
                         
         <div class="product-info text-left">
-          <h3 class="name"><a href="detail.html">{{ $product->product_name_en }}</a></h3>
+          <h3 class="name"><a href="detail.html">
+            @if(session()->get('language') == 'bangla') {{ $product->product_name_bn }} @else {{ $product->product_name_en }} @endif</a>
+          </h3>
           <div class="rating rateit-small"></div>
           <div class="description"></div>
-          <div class="product-price"> <span class="price"> $450.99 </span> <span class="price-before-discount">$ 800</span> </div>
+          @if ($product->discount_price == NULL)
+          <div class="product-price"> <span class="price"> ৳{{ $product->selling_price }} </span>  </div>
+               @else
+       <div class="product-price"> <span class="price"> ৳{{ $product->discount_price }} </span> <span class="price-before-discount">৳ {{ $product->selling_price }}</span> </div>
+               @endif
           <!-- /.product-price --> 
           
         </div>
@@ -1055,15 +1072,37 @@
                           <div class="image"> <a href="detail.html"><img  src="{{ asset($product->product_thambnail) }}" alt=""></a> </div>
                           <!-- /.image -->
                           
-                          <div class="tag new"><span>new</span></div>
-                        </div>
+                          @php
+                          $amount = $product->selling_price - $product->discount_price;
+                          $discount = ($amount/$product->selling_price) * 100;
+                          @endphp                  
+                  
+                              
+                            <div>
+                              @if ($product->discount_price == NULL)
+                              <div class="tag new"><span>new</span></div>
+                              @else
+                              <div class="tag hot"><span>{{ round($discount) }}%</span></div>
+                              @endif
+                            </div>
+                                           </div>
                         <!-- /.product-image -->
+
+                        
                         
         <div class="product-info text-left">
-          <h3 class="name"><a href="detail.html">{{ $product->product_name_en }}</a></h3>
-          <div class="rating rateit-small"></div>
-          <div class="description"></div>
-          <div class="product-price"> <span class="price"> $450.99 </span> <span class="price-before-discount">$ 800</span> </div>
+          <h3 class="name"><a href="detail.html">
+            @if(session()->get('language') == 'bangla') {{ $product->product_name_bn }} @else {{ $product->product_name_en }} @endif
+                        </a></h3>
+                      <div class="rating rateit-small"></div>
+                      <div class="description"></div>
+            
+                     @if ($product->discount_price == NULL)
+                <div class="product-price"> <span class="price"> ৳{{ $product->selling_price }} </span>  </div>
+                     @else
+             <div class="product-price"> <span class="price"> ৳{{ $product->discount_price }} </span> <span class="price-before-discount">৳ {{ $product->selling_price }}</span> </div>
+                     @endif
+          
           <!-- /.product-price --> 
           
         </div>
