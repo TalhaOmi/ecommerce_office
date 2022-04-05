@@ -6,6 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <meta name="description" content="">
 <meta name="author" content="">
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
 <meta name="keywords" content="MediaCenter, Template, eCommerce">
 <meta name="robots" content="all">
 <title>@yield('title') </title>
@@ -89,6 +91,109 @@
  @endif 
 </script>
 
+<!-- Add to Cart Product Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h5 class="modal-title" id="exampleModalLabel">Product Name </h5>
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+       </div>
+ 
+       <div class="modal-body">
+ 
+        <div class="row">
+ 
+         <div class="col-md-4">
+ 
+             <div class="card" style="width: 18rem;">
+   
+               <img src=" " class="card-img-top" alt="..." style="height: 200px; width: 200px;">
 
-</body>
-</html>
+ </div>
+ 
+         </div><!-- // end col md -->
+ 
+ 
+         <div class="col-md-4">
+ 
+      <ul class="list-group">
+         <li class="list-group-item">Product Price: </li>
+         <li class="list-group-item">Product Code:</li>
+         <li class="list-group-item">Category:</li>
+         <li class="list-group-item">Brand:</li>
+         <li class="list-group-item">Stock</li>
+ </ul>
+ 
+         </div><!-- // end col md -->
+ 
+ 
+         <div class="col-md-4">
+ 
+             <div class="form-group">
+               <label for="exampleFormControlSelect1">Choose Color</label>
+               <select class="form-control" id="exampleFormControlSelect1">
+       <option>1</option>
+       <option>2</option>
+       <option>3</option>
+       <option>4</option>
+       <option>5</option>
+     </select>
+   </div>  <!-- // end form group -->
+
+
+   <div class="form-group">
+   <label for="exampleFormControlSelect1">Choose Size</label>
+   <select class="form-control" id="exampleFormControlSelect1">
+     <option>1</option>
+     <option>2</option>
+     <option>3</option>
+     <option>4</option>
+     <option>5</option>
+   </select>
+ </div>  <!-- // end form group -->
+
+      <div class="form-group">
+   <label for="exampleFormControlInput1">Quantity</label>
+   <input type="number" class="form-control" id="exampleFormControlInput1" value="1" min="1" >
+ </div> <!-- // end form group -->
+
+<button type="submit" class="btn btn-primary mb-2">Add to Cart</button>
+ 
+         </div><!-- // end col md -->
+ 
+ 
+        </div> <!-- // end row -->
+ 
+      </div> <!-- // end modal Body -->
+
+   </div>
+ </div>
+</div>
+<!-- End Add to Cart Product Modal -->
+
+
+<script type="text/javascript">
+   $.ajaxSetup({
+       headers:{
+           'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+       }
+   })
+// Start Product View with Modal 
+function productView(id){
+   // alert(id)
+   $.ajax({
+       type: 'GET',
+       url: '/product/view/modal/'+id,
+       dataType:'json',
+       success:function(data){
+       }
+   })
+
+}
+</script>
+ 
+ </body>
+ </html>
