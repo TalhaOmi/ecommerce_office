@@ -10,7 +10,7 @@ use App\Models\Category;
 use App\Models\Slider;
 use App\Models\Product;
 use App\Models\Brand;
-use App\Models\MultiImg;
+use App\Models\MultiImg;    
 use Illuminate\Support\Facades\Hash;
 
 class IndexController extends Controller
