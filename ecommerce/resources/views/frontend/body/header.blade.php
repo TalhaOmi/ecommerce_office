@@ -200,8 +200,7 @@
 
    @foreach($subsubcategories as $subsubcategory)
               <ul class="links">
-                <li><a href="#">
-                  @if(session()->get('language') == 'bangla') {{ $subsubcategory->subsubcategory_name_bn }} @else {{ $subsubcategory->subsubcategory_name_en }} @endif
+                <li><a href="{{ url('subsubcategory/product/'.$subsubcategory->id.'/'.$subsubcategory->subsubcategory_slug_en ) }}">                  @if(session()->get('language') == 'bangla') {{ $subsubcategory->subsubcategory_name_bn }} @else {{ $subsubcategory->subsubcategory_name_en }} @endif
                 </a></li>
               </ul>
      @endforeach <!-- // End SubSubCategory Foreach -->
