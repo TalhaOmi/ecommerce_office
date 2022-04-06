@@ -250,6 +250,23 @@
     ),
     'prefix' => 'laravel_cache',
   ),
+  'cart' => 
+  array (
+    'calculator' => 'Gloudemans\\Shoppingcart\\Calculation\\DefaultCalculator',
+    'tax' => 0,
+    'database' => 
+    array (
+      'connection' => NULL,
+      'table' => 'shoppingcart',
+    ),
+    'destroy_on_logout' => false,
+    'format' => 
+    array (
+      'decimals' => 2,
+      'decimal_point' => '.',
+      'thousand_separator' => '',
+    ),
+  ),
   'cors' => 
   array (
     'paths' => 
@@ -716,23 +733,6 @@
       0 => 'C:\\xampp\\htdocs\\pro\\ecommerce\\resources\\views',
     ),
     'compiled' => 'C:\\xampp\\htdocs\\pro\\ecommerce\\storage\\framework\\views',
-  ),
-  'cart' => 
-  array (
-    'calculator' => 'Gloudemans\\Shoppingcart\\Calculation\\DefaultCalculator',
-    'tax' => 21,
-    'database' => 
-    array (
-      'connection' => NULL,
-      'table' => 'shoppingcart',
-    ),
-    'destroy_on_logout' => false,
-    'format' => 
-    array (
-      'decimals' => 2,
-      'decimal_point' => '.',
-      'thousand_separator' => ',',
-    ),
   ),
   'flare' => 
   array (
