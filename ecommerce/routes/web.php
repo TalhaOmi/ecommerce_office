@@ -311,4 +311,14 @@ Route::prefix('shipping')->group(function(){
     
    });
 
+   // Frontend Coupon Option
+
+Route::post('/coupon-apply', [CartController::class, 'CouponApply']);
+
+Route::get('/coupon-calculation', [CartController::class, 'CouponCalculation']);
+
+Route::get('/coupon-remove', [CartController::class, 'CouponRemove']);
+
+
+
 
